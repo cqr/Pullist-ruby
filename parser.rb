@@ -1,17 +1,7 @@
 require 'open-uri'
+require 'classes'
 
-class Book
-    attr_accessor :date, :name, :price, :pub
-    
-    def initialize(date, name, price, pub) 
-        @date = date
-        @name = name
-        @price = price
-        @pub = pub
-    end
-end
-
-$pub_list = ['DARK HORSE COMICS', 
+Pub_list = ['DARK HORSE COMICS', 
             'DC COMICS',    
             'IDW PUBLISHING',   
             'IMAGE COMICS',
@@ -28,7 +18,7 @@ current_pub = ''
         if sing.to_s == "MAGAZINES"
             puts "BUH"
             break
-        elsif pub_list.include? sing.to_s 
+        elsif Pub_list.include? sing.to_s 
             puts sing.to_s
             current_pub = sing
         end

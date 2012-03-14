@@ -16,20 +16,24 @@ current_pub = ''
     for line in file
     sing = line.strip.split("\t")
         if sing.to_s == "MAGAZINES"
-            puts "BUH"
             break
         elsif Pub_list.include? sing.to_s 
-            puts sing.to_s
-            current_pub = sing
+            pub = Publisher.new
+            pub.name = sing.to_s
+            pub.save 
+            current = pub
+            
         end
         if sing[1] == nil
             next
         else
-            s = Book.new(sing[0], sing[1], sing[2], current_pub)
+            s = Book.new(:date => sing[0], :name => sing[1], :price => sing[2], :pub => current )
             puts s.name
             puts s.pub
+            s.save
         end
-    end
+end
+puts Publisher.all.map {|pub| pub.name}
 file = nil
 end
 

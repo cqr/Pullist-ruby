@@ -27,9 +27,9 @@ current_pub = ''
         if sing[1] == nil
             next
         else
-            s = Book.new(:date => sing[0], :name => sing[1], :price => sing[2], :pub => current )
+            s = Book.new(:date => sing[0], :name => sing[1], :price => sing[2], :publisher => current )
             puts s.name
-            puts s.pub
+            puts s.publisher
             s.save
         end
 end

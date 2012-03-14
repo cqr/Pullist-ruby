@@ -13,7 +13,7 @@ class Book
         property :date,     String
         property :name,     String
         property :price,    String
-        property :pub,      Object
+        belongs_to :publisher
 end
 
 
@@ -22,6 +22,7 @@ class Publisher
 
     property :id,           Serial
     property :name,         String
+    has n, :books
 end 
 
 DataMapper.auto_upgrade!
